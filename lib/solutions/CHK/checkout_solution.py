@@ -4,18 +4,30 @@ PRICES = {
     "A": 50,
     "B": 30,
     "C": 20,
-    "D": 15
+    "D": 15,
+    "E": 40
 }
 
 OFFERS = {
     "A": {
-        "count": 3,
-        "price": 130
+        "multibuy": {
+            "count": 3,
+            "price": 130
+        }
     },
     "B": {
-        "count": 2,
-        "price": 45
+        "multibuy": {
+            "count": 2,
+            "price": 45
+        },
+    },
+    "E": {
+        "multibuy": { 
+            "count": 2,
+            "price": 45
+        }
     }
+
 }
 
 # noinspection PyUnusedLocal
@@ -42,3 +54,4 @@ def checkout(skus):
             total += multibuys_count * offer["price"] + remainder * PRICES[item]
 
     return total
+
