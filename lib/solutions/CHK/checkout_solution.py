@@ -110,8 +110,3 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
-
-
-
-
-
