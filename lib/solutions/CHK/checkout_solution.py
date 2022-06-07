@@ -22,12 +22,10 @@ OFFERS = {
         },
     },
     "E": {
-        "multibuy": { 
-            "count": 2,
-            "price": 45
+        "free": {
+            "B": 1
         }
     }
-
 }
 
 # noinspection PyUnusedLocal
@@ -54,4 +52,5 @@ def checkout(skus):
             total += multibuys_count * offer["price"] + remainder * PRICES[item]
 
     return total
+
 
