@@ -67,7 +67,6 @@ class Shopping():
                             self.basket[any_of_list]["count"] += 1
                             self.basket[any_of_list]["subtotal"] += any_deal["price"]
                             print(self.basket)
-                            break
                 break
                         
             
@@ -100,6 +99,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
 
