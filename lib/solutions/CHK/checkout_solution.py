@@ -44,12 +44,17 @@ class Shopping():
         self.items[item]["subtotal"] += PRICES[item]
 
     def apply_offers(self):
-        for item, deal_list in MULTIBUY:
+        for item, deal_list in MULTIBUY.items():
             if item not in self.items:
                 continue
 
+            count = self.items[item]["count"]
+            subtotal = 0
             for deal in deal_list:
-                pass
+                if count >= deal["count"]:
+                    multibuys_count = count // deal["count"]
+                    count = count % deal["count"]
+                    subtotal += multibuys_count * deal["price"]
             
 
             # apply freebes
@@ -87,5 +92,6 @@ def checkout(skus):
 
 
     return total
+
 
 
