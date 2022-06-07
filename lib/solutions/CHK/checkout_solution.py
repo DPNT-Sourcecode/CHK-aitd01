@@ -46,7 +46,21 @@ class Shopping():
         self.basket[item]["count"] += 1
         self.basket[item]["subtotal"] += PRICES[item]
 
-    def apply_offers(self):
+
+    def apply_freebes(self):
+        for item, free_deal in FREE.items():
+            if item not in self.basket:
+                continue
+
+            deal_multiple = self.basket[item]["count"] // free_deal["count"]
+            for freebe, count in free_deal["items"]:
+                self.basket[freebe]["count"] -= deal_multiple * count
+                if self.basket[freebe]["count"] < 0:
+                    self.basket[freebe]["count"] = 0
+
+                self.basket[freebe]["subtotal"] = self.basket[freebe]["count"] * PRICES[freebe]
+
+    def apply_multibuy(self):
         for item, deal_list in MULTIBUY.items():
             if item not in self.basket:
                 continue
@@ -58,23 +72,10 @@ class Shopping():
                     multibuys_count = remainder // deal["count"]
                     remainder = remainder % deal["count"]
                     subtotal += multibuys_count * deal["price"]
-        
+
             self.basket[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
 
-        for item, free_deal in FREE.items():
-            if item not in self.basket:
-                continue
-
-            deal_multiple = self.basket[item]["count"] // free_deal["count"]
-            for freebe, count in free_deal["items"]:
-                self.basket[freebe]["count"] -= deal_multiple * count
-                if self.basket[freebe]["count"] < 0:
-                    self.basket[freebe]["count"] = 0
-                
-                self.basket[freebe]["subtotal"] = self.basket[freebe]["count"] * PRICES[freebe]
-
-            
 
     def total(self):
         cost = 0
@@ -93,7 +94,8 @@ class Shopping():
 
             self.add(item)
 
-        self.apply_offers()
+        self.apply_freebes()
+        self.apply_multibuy()
 
         return self.total()
 
@@ -121,4 +123,5 @@ def checkout(skus):
 
 
     # return total
+
 
