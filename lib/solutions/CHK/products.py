@@ -82,13 +82,6 @@ MULTIBUY = {
             "price": 90
         },
     ],
-    "STXYZ": [
-        {
-            "count": 3,
-            "price": 45
-        },
-    ],
-
 }
 
 FREE = {
@@ -121,5 +114,12 @@ FREE = {
         "items": {
             "U": 1
         }
+    }
+}
+
+BUYANY = {
+    "STXYZ": {
+        "count": 3,
+        "price": 45
     }
 }
