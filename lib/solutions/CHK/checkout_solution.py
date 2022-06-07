@@ -46,7 +46,7 @@ class Shopping():
         self.items[item]["count"] += 1
         self.items[item]["subtotal"] += PRICES[item]
 
-        
+
 
 
 # noinspection PyUnusedLocal
@@ -70,8 +70,8 @@ def checkout(skus):
         if item not in shopping:
             continue
 
-        # apply freebes
-        if "free" in deals:
+        # # apply freebes
+        # if "free" in deals:
 
 
 
@@ -91,3 +91,4 @@ def checkout(skus):
 
 
     return total
+
