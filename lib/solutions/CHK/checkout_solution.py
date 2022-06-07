@@ -40,18 +40,18 @@ FREE = {
 class Shopping():
 
     def __init__(self):
-        self.items = defaultdict(lambda : {"count": 0, "subtotal": 0})
+        self.basket = defaultdict(lambda : {"count": 0, "subtotal": 0})
 
     def add(self, item):
-        self.items[item]["count"] += 1
-        self.items[item]["subtotal"] += PRICES[item]
+        self.basket[item]["count"] += 1
+        self.basket[item]["subtotal"] += PRICES[item]
 
     def apply_offers(self):
         for item, deal_list in MULTIBUY.items():
-            if item not in self.items:
+            if item not in self.basket:
                 continue
 
-            remainder = self.items[item]["count"]
+            remainder = self.basket[item]["count"]
             subtotal = 0
             for deal in deal_list:
                 if remainder >= deal["count"]:
@@ -59,18 +59,25 @@ class Shopping():
                     remainder = remainder % deal["count"]
                     subtotal += multibuys_count * deal["price"]
         
-            self.items[item]["subtotal"] = subtotal + remainder * PRICES[item]
+            self.basket[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
 
-        for item, free in FREE.items():
+        # for item, free_deal in FREE.items():
+        #     if item not in self.basket:
+        #         continue
 
-            # apply freebes
-            # if "free" in deals:
+        #     free_multiple = self.basket[item]["count"] // free_deal["count"]
+        #     # for freebe, count in free_deal["items"]:
+        #     #     //self.basket
+
+        #     self.basket[]
+        #     # apply freebes
+        #     # if "free" in deals:
 
     def total(self):
         cost = 0
-        for _, basket in self.items.items():
-            cost += basket["subtotal"]
+        for _, items in self.basket.items():
+            cost += items["subtotal"]
 
         return cost
 
@@ -112,6 +119,7 @@ def checkout(skus):
 
 
     # return total
+
 
 
 
