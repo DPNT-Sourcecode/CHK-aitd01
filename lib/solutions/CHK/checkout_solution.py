@@ -56,6 +56,7 @@ class Shopping():
                     count = count % deal["count"]
                     subtotal += multibuys_count * deal["price"]
             
+            self.items[item]["subtotal"] = subtotal
 
             # apply freebes
             # if "free" in deals:
@@ -92,6 +93,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
