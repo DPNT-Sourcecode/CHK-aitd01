@@ -51,15 +51,16 @@ class Shopping():
             if item not in self.items:
                 continue
 
-            count = self.items[item]["count"]
+            remainder = self.items[item]["count"]
             subtotal = 0
             for deal in deal_list:
-                if count >= deal["count"]:
-                    multibuys_count = count // deal["count"]
-                    count = count % deal["count"]
+                if remainder >= deal["count"]:
+                    multibuys_count = remainder // deal["count"]
+                    remainder = remainder % deal["count"]
                     subtotal += multibuys_count * deal["price"]
             
-            self.items[item]["subtotal"] = subtotal
+
+            self.items[item]["subtotal"] = subtotal + remainder*PRICES[item]
 
         #  for item, free in FREE.items():
 
@@ -68,6 +69,7 @@ class Shopping():
 
     def total(self):
         cost = 0
+        print(self.items)
         for _, basket in self.items.items():
             cost += basket["subtotal"]
 
@@ -111,4 +113,5 @@ def checkout(skus):
 
 
     # return total
+
 
