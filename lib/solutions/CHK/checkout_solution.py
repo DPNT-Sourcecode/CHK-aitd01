@@ -29,6 +29,7 @@ MULTIBUY = {
 
 FREE = {
     "E": {
+        "count"
         "B": 1
     }
 }
@@ -44,6 +45,7 @@ class Shopping():
         self.items[item]["subtotal"] += PRICES[item]
 
     def apply_offers(self):
+
         for item, deal_list in MULTIBUY.items():
             if item not in self.items:
                 continue
@@ -58,8 +60,10 @@ class Shopping():
             
             self.items[item]["subtotal"] = subtotal
 
-            # apply freebes
-            # if "free" in deals:
+        #  for item, free in FREE.items():
+
+        #     # apply freebes
+        #     # if "free" in deals:
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -93,6 +97,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
