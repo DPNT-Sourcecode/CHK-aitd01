@@ -1,47 +1,6 @@
 from collections import defaultdict
 
-PRICES = {
-    "A": 50,
-    "B": 30,
-    "C": 20,
-    "D": 15,
-    "E": 40,
-    "F": 10
-}
 
-MULTIBUY = {
-    "A": [
-            {
-                "count": 5,
-                "price": 200
-            },
-            {
-                "count": 3,
-                "price": 130
-            },
-        ],
-    "B": [
-            {
-                "count": 2,
-                "price": 45
-            },
-        ]
-}
-
-FREE = {
-    "E": {
-        "count": 2,
-        "items": {
-            "B": 1
-        }
-    },
-    "F": {
-        "count": 3,
-        "items": {
-            "F": 1
-        }
-    }
-}
 
 
 class Shopping():
