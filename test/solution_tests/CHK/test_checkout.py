@@ -24,5 +24,3 @@ class TestCheckout():
         assert checkout_solution.checkout("") == 0
         assert checkout_solution.checkout(None) == -1
         assert checkout_solution.checkout("a") == -1
-
-

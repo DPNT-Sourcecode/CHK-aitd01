@@ -42,5 +42,3 @@ def checkout(skus):
             total += multibuys_count * offer["price"] + remainder * PRICES[item]
 
     return total
-
-
