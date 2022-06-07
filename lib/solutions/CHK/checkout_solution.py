@@ -1,5 +1,5 @@
 from collections import defaultdict
-from .products import PRICES, MULTIBUY, FREE
+from .products import PRICES, MULTIBUY, FREE, BUYANY
 
 
 
@@ -90,6 +90,7 @@ class Shopping():
             self.add(item)
 
         self.apply_freebes()
+        self.apply_buyany()
         self.apply_multibuy()
 
         return self.total()
@@ -98,6 +99,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
 
