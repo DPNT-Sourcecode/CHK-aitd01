@@ -29,8 +29,10 @@ MULTIBUY = {
 
 FREE = {
     "E": {
-        "count"
-        "B": 1
+        "count": 2,
+        "items": {
+            "B": 1
+        }
     }
 }
 
@@ -60,10 +62,10 @@ class Shopping():
             self.items[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
 
-        #  for item, free in FREE.items():
+        for item, free in FREE.items():
 
-        #     # apply freebes
-        #     # if "free" in deals:
+            # apply freebes
+            # if "free" in deals:
 
     def total(self):
         cost = 0
@@ -110,6 +112,7 @@ def checkout(skus):
 
 
     # return total
+
 
 
 
