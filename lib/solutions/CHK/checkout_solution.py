@@ -25,7 +25,7 @@ def checkout(skus):
         return -1
 
     shopping = defaultdict(int)
-    for item in skus.split():
+    for item in skus:
         if item not in PRICES:
             return -1
 
@@ -42,4 +42,5 @@ def checkout(skus):
             total += multibuys_count * offer["price"] + remainder * PRICES[item]
 
     return total
+
 
