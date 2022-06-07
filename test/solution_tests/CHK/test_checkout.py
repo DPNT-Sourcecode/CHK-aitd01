@@ -19,5 +19,5 @@ class TestCheckout():
         assert checkout_solution.checkout("B B B B") == 90
         assert checkout_solution.checkout("B B B B B") == 120
 
-        assert checkout_solution.checkout("B B B B") == 90
+        assert checkout_solution.checkout("A D B C B B A C C D A A") == 180 + 75 + 3*20 + 2*15 # 4A 3B 3C 2D 
 

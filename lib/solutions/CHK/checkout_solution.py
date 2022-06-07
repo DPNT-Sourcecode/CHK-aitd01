@@ -24,7 +24,6 @@ def checkout(skus):
     shopping = defaultdict(int)
     for item in skus.split():
         shopping[item] += 1
-        
 
     total = 0
     for item, count in shopping.items():
