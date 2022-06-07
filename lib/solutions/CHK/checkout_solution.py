@@ -1,5 +1,5 @@
 from collections import defaultdict
-from .products import PRICES, MULTIBUY, FREE
+from .products import PRICES, MULTIBUY, FREE, BUYANY
 
 
 
@@ -42,6 +42,18 @@ class Shopping():
             self.basket[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
 
+# BUYANY = {
+#     "STXYZ": {
+#         "count": 3,
+#         "price": 45
+#     }
+# }
+
+    def apply_buyany(self):
+        for any_of_list, any_deal in BUYANY.items():
+
+
+
 
     def total(self):
         cost = 0
@@ -69,5 +81,6 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
