@@ -49,26 +49,31 @@ class Shopping():
 #     }
 # }
 
-    def apply_buyany(self):
-        print(self.basket)
-        for any_of_list, any_deal in BUYANY.items():
+    # def apply_buyany(self):
+    #     print(self.basket)
+    #     for any_of_list, any_deal in BUYANY.items():
         
-            purchased = ""
-            for item in any_of_list:
-                if item in self.basket:
-                    purchased += item
-                    print(purchased)
-                    if len(purchased) == any_deal["count"]:
-                        for item in purchased:
-                            self.basket[item]["count"] -= 1
-                            self.basket[item]["subtotal"] -= PRICES[item]
+    #         any_of_set = set(any_of_list)
+    #         basket_set = set(self.basket.keys())
+    #         if any_of_set.intersection(basket_set)
 
-                        self.basket[any_of_list]["count"] += 1
-                        self.basket[any_of_list]["subtotal"] += any_deal["price"]
-                        print(self.basket)
-                        break
-            else:
-                print("test")
+
+    #         # purchased = ""
+    #         # for item in any_of_list:
+    #         #     if item in self.basket:
+    #         #         purchased += item
+    #         #         print(purchased)
+    #         #         if len(purchased) == any_deal["count"]:
+    #         #             for item in purchased:
+    #         #                 self.basket[item]["count"] -= 1
+    #         #                 self.basket[item]["subtotal"] -= PRICES[item]
+
+    #         #             self.basket[any_of_list]["count"] += 1
+    #         #             self.basket[any_of_list]["subtotal"] += any_deal["price"]
+    #         #             print(self.basket)
+    #         #             break
+    #         # else:
+    #         #     print("test")
             
                         
             
@@ -101,4 +106,5 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
