@@ -1,5 +1,5 @@
 from collections import defaultdict
-from .products import PRICES, MULTIBUY, FREE, BUYANY
+from .products import PRICES, MULTIBUY, FREE
 
 
 
@@ -49,10 +49,18 @@ class Shopping():
 #     }
 # }
 
-    def apply_buyany(self):
-        for any_of_list, any_deal in BUYANY.items():
+    # def apply_buyany(self):
+    #     for any_of_list, any_deal in BUYANY.items():
 
-
+    #         purchased = []
+    #         count = 0
+    #         for item in any_of_list:
+    #             if item in self.basket:
+    #                 purchased.append(item)
+    #                 count += 1
+    #                 if count == any_deal["count"]:
+    #                     for item in purchased:
+    #                         self.basket[item]["count"] -= 1
 
 
     def total(self):
@@ -81,6 +89,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
 
