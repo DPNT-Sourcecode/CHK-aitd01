@@ -43,6 +43,7 @@ class Shopping():
     def add(self, item):
         self.items[item]["count"] += 1
         self.items[item]["subtotal"] += PRICES[item]
+        print(self.items)
 
     def apply_offers(self):
 
@@ -89,7 +90,8 @@ class Shopping():
 
 def checkout(skus):
     shopping = Shopping()
-    shopping.checkout(skus)
+    return shopping.checkout(skus)
+    
 
 
     # total = 0
@@ -109,3 +111,4 @@ def checkout(skus):
 
 
     # return total
+
