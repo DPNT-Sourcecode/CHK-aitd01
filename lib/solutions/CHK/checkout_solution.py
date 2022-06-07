@@ -103,26 +103,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
-    
 
-
-    # total = 0
-    # # apply offers
-    # for item, count in shopping.items():
-    #     offer = OFFERS.get(item)
-    #     if not offer:
-    #         total += count * PRICES[item]
-    #     else:
-    #         if "multibuy" in offer:
-    #             total += calc_multibuy(item, count)
-
-    #         # multibuys_count = count // offer["multibuy"]["count"]
-    #         # remainder = count % offer["count"]
-    #         # total += multibuys_count * offer["price"] + remainder * PRICES[item]
-
-
-
-    # return total
 
 
 

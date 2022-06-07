@@ -27,11 +27,17 @@ class TestCheckout():
 
         assert checkout_solution.checkout("EE") == 80
         assert checkout_solution.checkout("EEB") == 80
+        assert checkout_solution.checkout("EEBB") == 110
+        assert checkout_solution.checkout("EEBBB") == 125
+        assert checkout_solution.checkout("EEEEB") == 160
+        assert checkout_solution.checkout("EEEEBB") == 160
+
 
         assert checkout_solution.checkout("ADBCBBACCDAA") == 180 + 75 + 3*20 + 2*15 # 4A 3B 3C 2D 
 
         assert checkout_solution.checkout("") == 0
         assert checkout_solution.checkout(None) == -1
         assert checkout_solution.checkout("a") == -1
+
 
 
