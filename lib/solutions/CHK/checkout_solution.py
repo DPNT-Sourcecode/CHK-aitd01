@@ -65,6 +65,13 @@ class Shopping():
         #     # apply freebes
         #     # if "free" in deals:
 
+    def total(self):
+        cost = 0
+        for _, basket in self.items.items():
+            cost += basket["subtotal"]
+
+        return cost
+
     def checkout(self, skus):
         if skus == None:
             return -1
@@ -75,27 +82,30 @@ class Shopping():
 
             self.add(item)
 
+        self.apply_offers()
 
-    total = 0
-    # apply offers
-    for item, count in shopping.items():
-        offer = OFFERS.get(item)
-        if not offer:
-            total += count * PRICES[item]
-        else:
-            if "multibuy" in offer:
-                total += calc_multibuy(item, count)
-
-            # multibuys_count = count // offer["multibuy"]["count"]
-            # remainder = count % offer["count"]
-            # total += multibuys_count * offer["price"] + remainder * PRICES[item]
+        return self.total()
 
 
-
-    return total
-
-
-
+def checkout(skus):
+    shopping = Shopping()
+    shopping.checkout(skus)
 
 
+    # total = 0
+    # # apply offers
+    # for item, count in shopping.items():
+    #     offer = OFFERS.get(item)
+    #     if not offer:
+    #         total += count * PRICES[item]
+    #     else:
+    #         if "multibuy" in offer:
+    #             total += calc_multibuy(item, count)
 
+    #         # multibuys_count = count // offer["multibuy"]["count"]
+    #         # remainder = count % offer["count"]
+    #         # total += multibuys_count * offer["price"] + remainder * PRICES[item]
+
+
+
+    # return total
