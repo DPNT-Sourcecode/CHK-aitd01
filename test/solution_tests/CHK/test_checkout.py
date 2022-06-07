@@ -53,5 +53,3 @@ class TestCheckout():
         assert checkout_solution.checkout("a") == -1
         assert checkout_solution.checkout("ADBCBBaACxCDAA") == -1
 
-
-
