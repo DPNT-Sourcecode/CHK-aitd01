@@ -53,7 +53,7 @@ class Shopping():
                 continue
 
             deal_multiple = self.basket[item]["count"] // free_deal["count"]
-            for freebe, count in free_deal["items"]:
+            for freebe, count in free_deal["items"].items():
                 self.basket[freebe]["count"] -= deal_multiple * count
                 if self.basket[freebe]["count"] < 0:
                     self.basket[freebe]["count"] = 0
@@ -123,5 +123,6 @@ def checkout(skus):
 
 
     # return total
+
 
 
