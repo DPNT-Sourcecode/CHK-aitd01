@@ -42,6 +42,24 @@ class Shopping():
             self.basket[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
 
+# BUYANY = {
+#     "STXYZ": {
+#         "count": 3,
+#         "price": 45
+#     }
+# }
+
+    def apply_buyany(self):
+        for any_of_list, any_deal in BUYANY.items():
+
+            purchased = []
+            count = 0
+            for item in any_of_list:
+                if item in self.basket:
+                    purchased.append(item)
+                    count += 1
+                
+
 
     def total(self):
         cost = 0
@@ -69,3 +87,4 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
