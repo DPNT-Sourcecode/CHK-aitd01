@@ -8,31 +8,28 @@ PRICES = {
     "E": 40
 }
 
-OFFERS = {
-    "A": {
-        "multibuy": [
+MULTIBUY = {
+    "A": [
+            {
+                "count": 5,
+                "price": 200
+            },
             {
                 "count": 3,
                 "price": 130
             },
-            {
-                "count": 5,
-                "price": 200
-            }
-        ]
-    },
-    "B": {
-        "multibuy": [
+        ],
+    "B": [
             {
                 "count": 2,
                 "price": 45
             },
         ]
-    },
+}
+
+FREE = {
     "E": {
-        "free": {
-            "B": 1
-        }
+        "B": 1
     }
 }
 
@@ -46,8 +43,17 @@ class Shopping():
         self.items[item]["count"] += 1
         self.items[item]["subtotal"] += PRICES[item]
 
+    def apply_offers(self):
+        for item, deal_list in MULTIBUY:
+            if item not in self.items:
+                continue
 
+            for deal in deal_list:
+                pass
+            
 
+            # apply freebes
+            # if "free" in deals:
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -66,16 +72,6 @@ def checkout(skus):
 
     total = 0
     # apply offers
-    for item, deals in OFFERS:
-        if item not in shopping:
-            continue
-
-        # # apply freebes
-        # if "free" in deals:
-
-
-
-
     for item, count in shopping.items():
         offer = OFFERS.get(item)
         if not offer:
@@ -91,4 +87,5 @@ def checkout(skus):
 
 
     return total
+
 
