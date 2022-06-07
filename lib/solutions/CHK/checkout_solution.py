@@ -5,7 +5,8 @@ PRICES = {
     "B": 30,
     "C": 20,
     "D": 15,
-    "E": 40
+    "E": 40,
+    "F": 10
 }
 
 MULTIBUY = {
@@ -32,6 +33,12 @@ FREE = {
         "count": 2,
         "items": {
             "B": 1
+        }
+    },
+    "F": {
+        "count": 3,
+        "items": {
+            "F": 1
         }
     }
 }
@@ -103,6 +110,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
 

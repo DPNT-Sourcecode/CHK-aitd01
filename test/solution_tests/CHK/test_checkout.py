@@ -8,6 +8,7 @@ class TestCheckout():
         assert checkout_solution.checkout("C") == 20
         assert checkout_solution.checkout("D") == 15
         assert checkout_solution.checkout("E") == 40
+        assert checkout_solution.checkout("F") == 10
 
         assert checkout_solution.checkout("AA") == 100
         assert checkout_solution.checkout("AAA") == 130
@@ -38,6 +39,7 @@ class TestCheckout():
         assert checkout_solution.checkout("") == 0
         assert checkout_solution.checkout(None) == -1
         assert checkout_solution.checkout("a") == -1
+
 
 
 
