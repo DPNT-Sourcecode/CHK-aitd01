@@ -22,4 +22,3 @@ OFFERS = {
 # skus = unicode string
 def checkout(skus):
     skus.split()
-
