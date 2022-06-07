@@ -65,19 +65,15 @@ class Shopping():
         #     # apply freebes
         #     # if "free" in deals:
 
-# noinspection PyUnusedLocal
-# skus = unicode string
-def checkout(skus):
-    if skus == None:
-        return -1
-
-    shopping = defaultdict(lambda : {"count": 0, "subtotal": 0})
-    for item in skus:
-        if item not in PRICES:
+    def checkout(self, skus):
+        if skus == None:
             return -1
 
-        shopping[item]["count"] += 1
-        shopping[item]["subtotal"] += PRICES[item]
+        for item in skus:
+            if item not in PRICES:
+                return -1
+
+            self.add(item)
 
 
     total = 0
@@ -97,6 +93,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
