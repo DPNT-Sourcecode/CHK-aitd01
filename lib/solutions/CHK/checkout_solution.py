@@ -21,8 +21,14 @@ OFFERS = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    if skus == None:
+        return -1
+
     shopping = defaultdict(int)
     for item in skus.split():
+        if item not in PRICES:
+            return -1
+
         shopping[item] += 1
 
     total = 0

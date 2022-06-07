@@ -21,3 +21,7 @@ class TestCheckout():
 
         assert checkout_solution.checkout("A D B C B B A C C D A A") == 180 + 75 + 3*20 + 2*15 # 4A 3B 3C 2D 
 
+        assert checkout_solution.checkout("") == 0
+        assert checkout_solution.checkout(None) == -1
+        assert checkout_solution.checkout("a") == -1
+
