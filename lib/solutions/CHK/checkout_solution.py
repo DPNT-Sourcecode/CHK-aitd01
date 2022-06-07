@@ -10,16 +10,24 @@ PRICES = {
 
 OFFERS = {
     "A": {
-        "multibuy": {
-            "count": 3,
-            "price": 130
-        }
+        "multibuy": [
+            {
+                "count": 3,
+                "price": 130
+            },
+            {
+                "count": 5,
+                "price": 200
+            }
+        ]
     },
     "B": {
-        "multibuy": {
-            "count": 2,
-            "price": 45
-        },
+        "multibuy": [
+            {
+                "count": 2,
+                "price": 45
+            },
+        ]
     },
     "E": {
         "free": {
@@ -43,7 +51,7 @@ def checkout(skus):
 
     total = 0
     for item, count in shopping.items():
-        offer = OFFERS.get(item) 
+        offer = OFFERS.get(item)
         if not offer:
             total += count * PRICES[item]
         else:
@@ -52,5 +60,6 @@ def checkout(skus):
             total += multibuys_count * offer["price"] + remainder * PRICES[item]
 
     return total
+
 
 
