@@ -62,17 +62,19 @@ class Shopping():
             self.basket[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
 
-        # for item, free_deal in FREE.items():
-        #     if item not in self.basket:
-        #         continue
+        for item, free_deal in FREE.items():
+            if item not in self.basket:
+                continue
 
-        #     free_multiple = self.basket[item]["count"] // free_deal["count"]
-        #     # for freebe, count in free_deal["items"]:
-        #     #     //self.basket
+            deal_multiple = self.basket[item]["count"] // free_deal["count"]
+            for freebe, count in free_deal["items"]:
+                self.basket[freebe]["count"] -= deal_multiple * count
+                if self.basket[freebe]["count"] < 0:
+                    self.basket[freebe]["count"] = 0
+                
+                self.basket[freebe]["subtotal"] = self.basket[freebe]["count"] * PRICES[freebe]
 
-        #     self.basket[]
-        #     # apply freebes
-        #     # if "free" in deals:
+            
 
     def total(self):
         cost = 0
@@ -119,3 +121,4 @@ def checkout(skus):
 
 
     # return total
+
