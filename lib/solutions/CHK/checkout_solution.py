@@ -50,6 +50,7 @@ class Shopping():
                 purchased = ""
                 i = 0
                 while i < len(any_of_list):
+                    import ipdb; ipdb.set_trace()
                     item = any_of_list[i]
                     print(i, item)
                     if item in self.basket and self.basket[item]["count"] > 0:
@@ -100,6 +101,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
 
