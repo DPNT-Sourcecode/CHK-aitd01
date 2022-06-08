@@ -13,20 +13,18 @@ class Shopping():
         self.basket[item]["subtotal"] += PRICES[item]
 
 
-    def apply_freebes(self, deal):
-        item = deal[0]
-        free_deal = deal[1]
-        if item not in self.basket:
-            return
+    def apply_freebes(self):
+        for item, free_deal in FREE.items():
+            if item not in self.basket:
+                continue
 
-        print(free_deal)
-        deal_multiple = self.basket[item]["count"] // free_deal["count"]
-        for freebe, count in free_deal["items"].items():
-            self.basket[freebe]["count"] -= deal_multiple * count
-            if self.basket[freebe]["count"] < 0:
-                self.basket[freebe]["count"] = 0
+            deal_multiple = self.basket[item]["count"] // free_deal["count"]
+            for freebe, count in free_deal["items"].items():
+                self.basket[freebe]["count"] -= deal_multiple * count
+                if self.basket[freebe]["count"] < 0:
+                    self.basket[freebe]["count"] = 0
 
-            self.basket[freebe]["subtotal"] = self.basket[freebe]["count"] * PRICES[freebe]
+                self.basket[freebe]["subtotal"] = self.basket[freebe]["count"] * PRICES[freebe]
 
     def apply_multibuy(self):
         for item, deal_list in MULTIBUY.items():
@@ -51,30 +49,30 @@ class Shopping():
 #     }
 # }
 
-    # def apply_buyany(self):
-    #     print(self.basket)
-    #     for any_of_list, any_deal in BUYANY.items():
+    def apply_buyany(self):
+        print(self.basket)
+        for any_of_list, any_deal in BUYANY.items():
         
-    #         # any_of_set = set(any_of_list)
-    #         # basket_set = set(self.basket.keys())
-    #         # if any_of_set.intersection(basket_set)
+            # any_of_set = set(any_of_list)
+            # basket_set = set(self.basket.keys())
+            # if any_of_set.intersection(basket_set)
 
-    #         any_3 = ""
-    #         for item in any_of_list:
-    #             if item in self.basket:
-    #                 any_3 += item
-    #                 print(purchased)
-    #                 if len(purchased) == any_deal["count"]:
-    #                     for item in purchased:
-    #                         self.basket[item]["count"] -= 1
-    #                         self.basket[item]["subtotal"] -= PRICES[item]
+            purchased = ""
+            for item in any_of_list:
+                if item in self.basket:
+                    purchased += item
+                    print(purchased)
+                    if len(purchased) == any_deal["count"]:
+                        for item in purchased:
+                            self.basket[item]["count"] -= 1
+                            self.basket[item]["subtotal"] -= PRICES[item]
 
-    #                     self.basket[any_of_list]["count"] += 1
-    #                     self.basket[any_of_list]["subtotal"] += any_deal["price"]
-    #                     print(self.basket)
-    #                     break
-    #         else:
-    #             print("test")
+                        self.basket[any_of_list]["count"] += 1
+                        self.basket[any_of_list]["subtotal"] += any_deal["price"]
+                        print(self.basket)
+                        break
+            else:
+                print("test")
             
                         
             
@@ -97,11 +95,8 @@ class Shopping():
 
             self.add(item)
 
-        print(self.basket)
-        map(self.apply_freebes, FREE.items())
-        print(self.basket)
-        # self.apply_freebes()
-        # self.apply_buyany()
+        self.apply_freebes()
+        self.apply_buyany()
         self.apply_multibuy()
 
         return self.total()
@@ -110,7 +105,3 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
-
-
-
-
