@@ -13,7 +13,9 @@ class Shopping():
         self.basket[item]["subtotal"] += PRICES[item]
 
 
-    def apply_freebes(self, item, free_deal):
+    def apply_freebes(self, deal):
+        item = deal[0]
+        free_deal = deal[1]
         if item not in self.basket:
             return
 
@@ -108,6 +110,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
 
