@@ -204,8 +204,3 @@ class TestCheckout():
         # assert checkout_solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1606
         # assert checkout_solution.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX") == 1655
         assert checkout_solution.checkout("CXYZYZC") == 127
-
-
-
-
-
