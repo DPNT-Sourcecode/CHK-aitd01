@@ -44,31 +44,10 @@ class Shopping():
             self.basket[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
 
-    def apply_buyany(self):
-        for any_of_list, any_deal in BUYANY.items():
-            while True:
-                purchased = ""
-                for item in any_of_list:
-                    if self.basket[item]["count"] > 0:
-                        multibuys_count = self.basket[item]["count"] // any_deal["count"]
-                        self.basket[item]["count"] = self.basket[item]["count"] % any_deal["count"]
-                        
-                        if multibuys_count:
-                            purchased = item*any_deal["count"]
-                            self.basket[purchased]["count"] += 1
-                            self.basket[purchased]["subtotal"] += multibuys_count * any_deal["price"]
+    # def apply_buyany(self):
+    #     for any_of_list, any_deal in BUYANY.items():
+                
 
-                        purchased += item*self.basket[item]["count"]
-                        if len(purchased) == any_deal["count"]:
-                            for item in purchased:
-                                self.basket[item]["count"] -= 1
-                                self.basket[item]["subtotal"] -= PRICES[item]
-
-                            self.basket[any_of_list]["count"] += 1
-                            self.basket[any_of_list]["subtotal"] += any_deal["price"]
-                            break
-                else:
-                    break
             
 
 
@@ -99,5 +78,3 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
-
-
