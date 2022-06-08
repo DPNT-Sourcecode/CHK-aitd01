@@ -51,10 +51,12 @@ class Shopping():
                 for item in any_of_list:
                     if self.basket[item]["count"] > 0:
                         multibuys_count = self.basket[item]["count"] // any_deal["count"]
-                        remainder = remainder % deal["count"]
-                        subtotal += multibuys_count * deal["price"]
-
-
+                        self.basket[item]["count"] = self.basket[item]["count"] % any_deal["count"]
+                        
+                        if multibuys_count:
+                            purchased = item*any_deal["count"]
+                            self.basket[purchased]["count"] += 1
+                            self.basket[purchased]["subtotal"] += multibuys_count * any_deal["price"]
 
                         purchased += item*self.basket[item]["count"]
                         if len(purchased) == any_deal["count"]:
@@ -97,4 +99,5 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
