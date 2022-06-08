@@ -51,9 +51,17 @@ class Shopping():
             for item in any_of_list:
                 purchased += self.basket[item]["count"] * item
 
-            
-            
+            while purchased:
+                count = any_deal["count"]
+                anybuy = purchased[:count]
+                purchased = purchased[count:]
+                if len(anybuy) == count:
+                    self.basket[anybuy]["count"] += 1
+                    self.basket[anybuy]["price"] += any_deal["price"]
 
+                    for item in anybuy:
+                        self.basket[item]["count"] -= 1
+                        self.basket[item]["subtotal"] -= PRICES[item]
 
     def total(self):
         cost = 0
@@ -82,4 +90,3 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
-
