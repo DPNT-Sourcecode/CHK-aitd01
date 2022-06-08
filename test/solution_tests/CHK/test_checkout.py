@@ -205,4 +205,5 @@ class TestCheckout():
         # assert checkout_solution.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX") == 1655
         assert checkout_solution.checkout("CXYZYZC") == 127
 # 2C  2Z 2Y X
-# 2*20 + 2*21 + 2*20 + 17 = 122 not 127 ?
+# 2*20    + 2*21 + 2*20 + 17 = 122 not 127 ?
+# 2c x 2y 2z

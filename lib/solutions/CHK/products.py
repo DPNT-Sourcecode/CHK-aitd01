@@ -120,7 +120,8 @@ FREE = {
 BUYANY = {
     # "ZSTYX": { # desc price order 
     # "XYTSZ": {
-    "STXYZ": {        
+    # "STXYZ": {
+    "ZSTXY": {        
         "count": 3,
         "price": 45
     }
