@@ -52,7 +52,6 @@ class Shopping():
     def apply_buyany(self):
         print(self.basket)
         for any_of_list, any_deal in BUYANY.items():
-        
             while True:
                 purchased = ""
                 for item in any_of_list:
@@ -69,6 +68,7 @@ class Shopping():
                             print(self.basket)
                             break
                 else:
+                    import ipdb; ipdb.set_trace()
                     break
             
 
@@ -100,4 +100,5 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
