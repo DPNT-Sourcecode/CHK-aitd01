@@ -8,6 +8,7 @@ class Shopping():
     def __init__(self):
         self.basket = defaultdict(lambda : {"count": 0, "subtotal": 0})
 
+
     def add(self, item):
         self.basket[item]["count"] += 1
         self.basket[item]["subtotal"] += PRICES[item]
@@ -26,6 +27,7 @@ class Shopping():
 
                 self.basket[freebe]["subtotal"] = self.basket[freebe]["count"] * PRICES[freebe]
 
+
     def apply_multibuy(self):
         for item, deal_list in MULTIBUY.items():
             if item not in self.basket:
@@ -41,13 +43,6 @@ class Shopping():
 
             self.basket[item]["subtotal"] = subtotal + remainder * PRICES[item]
 
-
-# BUYANY = {
-#     "STXYZ": {
-#         "count": 3,
-#         "price": 45
-#     }
-# }
 
     def apply_buyany(self):
         print(self.basket)
@@ -68,7 +63,6 @@ class Shopping():
                             print(self.basket)
                             break
                 else:
-                    import ipdb; ipdb.set_trace()
                     break
             
 
@@ -100,6 +94,7 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
 
