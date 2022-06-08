@@ -200,10 +200,10 @@ class TestCheckout():
         assert checkout_solution.checkout("ZZZS") == 65
         assert checkout_solution.checkout("STXS") == 62
         assert checkout_solution.checkout("STXZ") == 62
-        # assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1606
-        # assert checkout_solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1606
-        # assert checkout_solution.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX") == 1655
-        assert checkout_solution.checkout("CXYZYZC") == 127
+        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1602
+        assert checkout_solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1602
+        assert checkout_solution.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX") == 1655
+        assert checkout_solution.checkout("CXYZYZC") == 122
 # 2C  2Z 2Y X
 # 2*20    + 2*21 + 2*20 + 17 = 122 not 127 ?
 # 2c x 2y 2z
