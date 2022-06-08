@@ -48,17 +48,22 @@ class Shopping():
         for any_of_list, any_deal in BUYANY.items():
             while True:
                 purchased = ""
-                for item in any_of_list:
+                i = 0
+                while i < len(any_of_list):
+                    item = any_of_list[i]
                     if item in self.basket and self.basket[item]["count"] > 0:
                         purchased += item
-                        if len(purchased) == any_deal["count"]:
-                            for item in purchased:
-                                self.basket[item]["count"] -= 1
-                                self.basket[item]["subtotal"] -= PRICES[item]
+                    else:
+                        i+=1
 
-                            self.basket[any_of_list]["count"] += 1
-                            self.basket[any_of_list]["subtotal"] += any_deal["price"]
-                            break
+                    if len(purchased) == any_deal["count"]:
+                        for item in purchased:
+                            self.basket[item]["count"] -= 1
+                            self.basket[item]["subtotal"] -= PRICES[item]
+
+                        self.basket[any_of_list]["count"] += 1
+                        self.basket[any_of_list]["subtotal"] += any_deal["price"]
+                        break
                 else:
                     break
             
@@ -91,3 +96,4 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+

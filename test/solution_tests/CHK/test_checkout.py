@@ -47,10 +47,11 @@ class TestCheckout():
         assert checkout_solution.checkout("TXY") == 45
         assert checkout_solution.checkout("XYZ") == 45
         assert checkout_solution.checkout("XYZTXY") == 90
-        assert checkout_solution.checkout("XXX") == 3*17
+        assert checkout_solution.checkout("XXX") == 45
 
         assert checkout_solution.checkout("") == 0
         assert checkout_solution.checkout(None) == -1
         assert checkout_solution.checkout("a") == -1
         assert checkout_solution.checkout("ADBCBBaACxCDAA") == -1
+
 
