@@ -55,7 +55,7 @@ class Shopping():
             while True:
                 purchased = ""
                 for item in any_of_list:
-                    if item in self.basket:
+                    if item in self.basket and self.basket[item]["count"] > 0:
                         purchased += item
                         print(purchased)
                         if len(purchased) == any_deal["count"]:
@@ -100,5 +100,6 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
 
