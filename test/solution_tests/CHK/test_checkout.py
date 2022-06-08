@@ -47,9 +47,6 @@ class TestCheckout():
         assert checkout_solution.checkout("XYZ") == 45
         assert checkout_solution.checkout("XYZTXY") == 90
         assert checkout_solution.checkout("XXX") == 45
-        assert checkout_solution.checkout("SSSZ") == 65
-        assert checkout_solution.checkout("ZZS") == 65
-        assert checkout_solution.checkout("STXZ") == 62
 
         assert checkout_solution.checkout("") == 0
         assert checkout_solution.checkout(None) == -1
@@ -198,18 +195,15 @@ class TestCheckout():
         assert checkout_solution.checkout("STX") == 45
         assert checkout_solution.checkout("STXSTX") == 90
         assert checkout_solution.checkout("SSS") == 45
-        assert checkout_solution.checkout("SSSZ") == 66
+        assert checkout_solution.checkout("SSSZ") == 65
         assert checkout_solution.checkout("ZZZ") == 45
-        assert checkout_solution.checkout("ZZZS") == 66
+        assert checkout_solution.checkout("ZZZS") == 65
         assert checkout_solution.checkout("STXS") == 62
-        assert checkout_solution.checkout("STXZ") == 66
+        assert checkout_solution.checkout("STXZ") == 62
         assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1606
         assert checkout_solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1606
         assert checkout_solution.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX") == 1655
         assert checkout_solution.checkout("CXYZYZC") == 127
-        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1606
-        assert checkout_solution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1606
-        assert checkout_solution.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX") == 1655
 
 
 
