@@ -24,6 +24,8 @@ class Shopping():
                 self.basket[freebe]["count"] = 0
 
             self.basket[freebe]["subtotal"] = self.basket[freebe]["count"] * PRICES[freebe]
+        
+        print(self.basket)
 
     def apply_multibuy(self):
         for item, deal_list in MULTIBUY.items():
@@ -94,7 +96,9 @@ class Shopping():
 
             self.add(item)
 
+        print(self.basket)
         map(self.apply_freebes, FREE.items())
+        print(self.basket)
         # self.apply_freebes()
         # self.apply_buyany()
         self.apply_multibuy()
@@ -105,4 +109,5 @@ class Shopping():
 def checkout(skus):
     shopping = Shopping()
     return shopping.checkout(skus)
+
 
